@@ -1,0 +1,43 @@
+org.tandemframework core 1.6.18-r7 
+org.tandemframework db-support 1.6.18-r7 
+org.tandemframework hib-support 1.6.18-r7 
+org.tandemframework rtf 1.6.18-r7 
+org.tandemframework caf 1.6.18-r7 
+org.tandemframework __classreplace 1.6.18-r7 
+org.tandemframework tap-support 1.6.18-r7 
+org.tandemframework common 1.6.18-r7 
+org.tandemframework sec 1.6.18-r7 
+org.tandemframework.shared sandbox 1.9.0-SH-r7317 Sandbox
+org.tandemframework.shared commonbase 1.9.0-SH-r7317 Общие прикладные функции
+org.tandemframework.shared fias 1.9.0-SH-r7317 Реестр адресов
+org.tandemframework.shared organization 1.9.0-SH-r7317 Оргструктура
+org.tandemframework.shared person 1.9.0-SH-r7317 Персоны
+org.tandemframework.shared cxfws 1.9.0-SH-r7317 Веб-сервисы CXF
+org.tandemframework.shared image 1.9.0-SH-r7317 Работа с изображениями
+org.tandemframework.shared archive 1.9.0-SH-r7317 Архив
+org.tandemframework ldap 1.6.18-r7 
+ru.tandemservice.uni.product unibase 2.9.0-uni-r1 Базовый модуль
+ru.tandemservice.uni.product uniedu 2.9.0-uni-r1 Образовательные программы
+org.tandemframework.shared employeebase 1.9.0-SH-r7317 Кадровый реестр
+org.tandemframework.shared ctr 1.9.0-SH-r7317 Базовые договоры
+ru.tandemservice.uni.product uni 2.9.0-uni-r1 Студенты
+ru.tandemservice.uni.product uniplaces 2.9.0-uni-r1 Здания и помещения (реестр)
+ru.tandemservice.uni.product unischedule 2.9.0-uni-r1 Базовое расписание
+ru.tandemservice.uni.product unimv 2.9.0-uni-r1 Визирование
+ru.tandemservice.uni.product unimove 2.9.0-uni-r1 Базовое движение
+ru.tandemservice.uni.product unienr14 2.9.0-uni-r1 Абитуриенты
+ru.tandemservice.uni.product unienr14_fis 2.9.0-uni-r1 Интеграция с ФИС
+ru.tandemservice.uni.product unieductr 2.9.0-uni-r1 Договоры на обучение
+ru.tandemservice.uni.product unienr14_ctr 2.9.0-uni-r1 Договоры абитуриентов
+ru.tandemservice.uni.product unictr 2.9.0-uni-r1 Контрагенты (старый)
+ru.tandemservice.uni.product uniepp 2.9.0-uni-r1 Учебный процесс
+ru.tandemservice.uni.product uniepp_price 2.9.0-uni-r1 Цены за учебные единицы
+ru.tandemservice.uni.product unispp 2.9.0-uni-r1 Расписание
+ru.tandemservice.uni.product unisession 2.9.0-uni-r1 Сессия
+ru.tandemservice.uni.product unitraining 2.9.0-uni-r1 БРС и журналы
+ru.tandemservice.uni.product movestudent 2.9.0-uni-r1 Движение студентов
+ru.tandemservice.uni.product unidip 2.9.0-uni-r1 Дипломирование
+ru.tandemservice.uni.product unisp 2.9.0-uni-r1 Выплаты студентам
+ru.tandemservice.uni.project unimirea 2.9.0-uni-r1 
+ru.tandemservice.uniclient unimirea_code 1.0.0-UC-SNAPSHOT 
+ru.tandemservice.uniclient unimirea_web 1.0.0-UC-SNAPSHOT 

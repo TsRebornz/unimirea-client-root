@@ -1,0 +1,29 @@
+<div jwcid="@tandem:mBlock" securedObject="ui:securedObject" permissionKey="menuDiplomaRegistry">
+    <div jwcid="@commonbase:sticker"><div jwcid="@Insert" value="message:ui.title"/></div>
+    <div jwcid="@tandem:mRenderComponentRegion">
+        <div class="wrapper">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="actions-wrapper">
+                        <div jwcid="@tandem:mSubmit" renderAsLink="true" listener="onClickAddEntParticipation" type="action" permissionKey="addEntParticipation" >Добавить мероприятие </div>
+                        <div class="filter">Фильтры</div>
+                        <div jwcid="@tandem:mTextField" displayName="message:ui.lastName" value="settings:lastName"/>
+                        <div jwcid="@tandem:mTextField" displayName="message:ui.firstName" value="settings:firstName"/>
+                        <div jwcid="@tandem:mTextField" displayName="message:ui.middleName" value="settings:middleName"/>
+                        <!--div jwcid="@tandem:mAutoCompleteSelect" displayName="message:ui.selectEntDS" source="ds:selectEntDS" value="settings:entTypeUnit"/-->
+
+                        <div style="width:35%;float:left;" jwcid="@tandem:mSubmit" listener="onClickSearch" type="action" id="submit_desktop">Применить</div>
+                        <div style="width:35%;float:left;" jwcid="@tandem:mSubmit" listener="onClickClear" type="cancel">Сбросить</div>
+                    </td>
+                    <td style="vertical-align:top;">
+                        <div jwcid="@tandem:mSearchList" showRowNumbersColumn="true" caption="Участники мероприятий"
+                             displayColumnButton="true" settingsKey="EntParticipationList" displayFooter="true" displayHeader="true"  dataSource="ds:selectEntDS"
+                            />
+                        <br/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!--#MainHash#E0AED4C61BF98CCB54AE1658181A4D074B828AAC##-->

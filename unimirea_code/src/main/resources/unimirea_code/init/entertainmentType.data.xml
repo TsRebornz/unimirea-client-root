@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data name="entertainmentTypeData"
+      xmlns="http://www.tandemframework.org/meta/entity-data" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      xsi:schemaLocation="http://www.tandemframework.org/meta/entity-data http://www.tandemframework.org/schema/meta/entity-data.xsd">
+
+      <entity name="entertainmentType" synchronize="user" constant-support="true">
+            <item id="1" constant-name="GO" synchronize="system">
+                  <property name="title" value="Городская олимпиада" />                  
+                  <property name="shortTitle" value="ГО" />
+            </item>
+            <item id="2" constant-name="OO" synchronize="system">
+                  <property name="title" value="Областная олимпиада" />                  
+                  <property name="shortTitle" value="ОО" />
+            </item>
+            <item id="3" constant-name="VO" synchronize="system">
+                  <property name="title" value="Всероссийская олимпиада" />                  
+                  <property name="shortTitle" value="ВО" />
+            </item>
+            <item id="4" constant-name="MO" synchronize="system">
+                  <property name="title" value="Международная олимпиада" />                  
+                  <property name="shortTitle" value="МО" />
+            </item>
+            <item id="5" constant-name="NK" synchronize="system">
+                  <property name="title" value="Научная конференция" />                  
+                  <property name="shortTitle" value="НК" />
+            </item>
+            <item id="6" constant-name="NS" synchronize="system">
+                  <property name="title" value="Научный семинар" />                  
+                  <property name="shortTitle" value="НС" />
+            </item>
+
+      </entity>
+
+</data>

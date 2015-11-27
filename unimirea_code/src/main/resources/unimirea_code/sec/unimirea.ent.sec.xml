@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<security-config name="unimirea-ent-sec-config" xmlns="http://www.tandemframework.org/meta/sec-meta"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.tandemframework.org/meta/sec-meta http://www.tandemframework.org/schema/meta/sec-meta.xsd">
+    <permission-group name="mireaEntPG" title="Мероприятия права доступа для списка">
+        <permission name="menuEntertainment" title="Просмотр основных элементов"/>
+        <permission name="entertainmentAdd" title="Добавление мероприятий"/>
+    </permission-group>
+
+    <permission-group name="mireaEntObjPG" title="Мероприятия права доступа для объекта" >
+        <permission name="entertainmentView" title="Просмотр карточки мероприятия"/>
+        <permission name="entertainmentEdit" title="Редактирование мероприятий"/>
+        <permission name="entertainmentDelete" title="Удаление мероприятий"/>
+    </permission-group>
+
+    <group-relation permission-group-name="mireaEntPG" group-name="mireaEntLG"/>
+    <group-relation permission-group-name="mireaEntObjPG" group-name="mireaEntCG"/>
+
+    <module-global-group name="entertainmentMGG" title="Модуль демопроект">
+        <list-group name="mireaEntLG" title="Список мероприятий" entity-class="org.tandemframework.sec.entity.CommonSecurityObject" />
+        <class-group name="mireaEntCG" entity-class="ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentTypeUnit" />
+    </module-global-group>
+
+</security-config>

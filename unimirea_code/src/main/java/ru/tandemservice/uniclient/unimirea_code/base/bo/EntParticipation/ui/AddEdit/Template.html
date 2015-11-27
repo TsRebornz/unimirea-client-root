@@ -1,0 +1,38 @@
+<!--#DisableCID#-->
+<div jwcid="@tandem:mPageWrapper">
+
+    <div jwcid="formBlock@Any">
+        <table class="container-table">
+            <tr>
+                <td colspan="2"><div jwcid="entTypeUnit@tandem:mAutoCompleteSelect"
+                                     submitOnChange="true" updateOnChange="formBlock"
+                                     class="combo-select-double-width"
+                                     source="ui:entTypeUnitModel" value="ui:entTypeUnit"
+                                     displayName="Мероприятие"
+                                     validators="validators:required" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><div jwcid="participant@tandem:mAutoCompleteSelect"
+                                     submitOnChange="true" updateOnChange="formBlock"
+                                     class="combo-select-double-width"
+                                     source="ui:participantModel" value="ui:participant"
+                                     displayName="ФИО Сотрудника"
+                                     validators="validators:required" />
+                </td>
+            </tr>
+            <tr>
+                <td><div jwcid="overseer@tandem:mCheckbox" value="ui:overseer" displayName="Наблюдатель" cid="2627v0"/></td>
+            </tr>
+        </table>
+
+        <table class="container-table"><tr>
+            <td><div jwcid="@tandem:mSubmit" name="save" visible = "true"  listener="onClickApply" validate="true" type="action" id="submit_desktop">Сохранить</div>
+            </td>
+            <td><div jwcid="@tandem:mSubmit"  name="cancel" visible = "true" listener="deactivate" type="cancel">Отменить</div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+</div>

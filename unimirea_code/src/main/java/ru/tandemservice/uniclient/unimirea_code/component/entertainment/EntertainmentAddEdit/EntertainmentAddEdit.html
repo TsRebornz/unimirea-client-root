@@ -1,0 +1,26 @@
+<div jwcid="@tandem:mRenderComponentRegion">
+    <div jwcid="@commonbase:sticker" ><span jwcid="@tandem:mIf" condition="fast:model.editForm" >Редактирование</span><span jwcid="@tandem:mElse" >Добавление </span> мероприятия  </div>
+    <div class="wrapper" >
+        <div jwcid="@tandem:mFieldSet" displayName="Данный мероприятия" >
+            <table class="container-table" >
+                <tr >
+                    <td colspan="2"><div jwcid="@tandem:mTextField" value="fast:model.entTypeUnit.titile" class="double-width" displayName="Наименование мероприятия" validators="validators:required" /></td>
+                </tr>
+                <tr >
+                    <td colspan="2" ><div jwcid="entList@tandem:mAutoCompleteSelect" source="fast:model.entList" class="combo-select-double-width" value="fast:model.entTypeUnit.type" displayName="Тип" /></td>
+                </tr>
+                <tr>
+                    <td ><div jwcid="@tandem:mDatePicker" value="fast:model.entTypeUnit.dateBegin" displayName="Дата начала" validators="validators:required" /></td>
+                    <td ><div jwcid="@tandem:mDatePicker" value="fast:model.entTypeUnit.dateEnd" displayName="Дата окончания" /></td>
+                </tr>
+                <tr >
+                    <td colspan="2" ><div jwcid="@tandem:mTextArea" class="textarea double-width" value="fast:model.entTypeUnit.description" displayName="Описание" useFCKEdtior="true" rows="5" /></td>
+                </tr>
+            </table>
+        </div>
+        <table class="container-table" ><tr>
+            <td><div jwcid="@tandem:mSubmit" name="save" listener="onClickApply" validate="true" id="submit_desktop"  cid="263tn8">Сохранить</div></td>
+            <td><div jwcid="@tandem:mSubmit" name="cancel" listener="deactivate" cid="263tna">Отменить</div></td>
+        </tr></table>
+    </div>
+</div><!--#MainHash#A6D2DB534A879D19FB5F960D382196AD8DAE46DC##-->

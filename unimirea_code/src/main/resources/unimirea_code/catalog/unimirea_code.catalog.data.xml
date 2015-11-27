@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data name="client-catalog-init-ru.tandemservice.uniclient-unimirea_code"
+      xmlns="http://www.tandemframework.org/meta/entity-data" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      xsi:schemaLocation="http://www.tandemframework.org/meta/entity-data http://www.tandemframework.org/schema/meta/entity-data.xsd">
+
+    <!--
+    <entity name="testSimpleCatalog" synchronize="user" constant-support="true">
+        <item id="01" synchronize="system" constant-name="test item">
+            <property name="title" value="Тестовый элемент справочника"/>
+            <property name="shortTitle" value="Тестовый"/>
+        </item>
+    </entity>
+    !-->
+
+</data>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="ru.tandemservice.uniclient.unimirea_code.entity.catalog.EntertainmentType" table="entertainmenttype_t" lazy="true"
+    persister="org.tandemframework.hibsupport.persister.SubclassTypedPersister" optimistic-lock="dirty" dynamic-update="true"
+    discriminator-value="-16702">   <!-- Do not use this discriminator value! It will be changed on startup. -->
+    <cache usage="read-write"/>
+    <comment>ru.tandemservice.uniclient.unimirea_code.entity.catalog.EntertainmentType</comment>
+    <id name="id" type="long" column="id">
+        <generator class="org.tandemframework.hibsupport.EntityIDGenerator"/>
+    </id>
+    <discriminator type="short" column="discriminator"/>
+
+    <natural-id mutable="false">
+    <property name="code" column="code_p" not-null="true"            type="org.tandemframework.hibsupport.type.TrimmedStringType" length="255" unique-key="uk_naturalid_entertainmenttype"/>
+
+    </natural-id>
+
+    <property name="shortTitle" column="shorttitle_p" not-null="true"            type="org.tandemframework.hibsupport.type.TrimmedStringType" length="255"/>
+
+    <property name="title" column="title_p" not-null="false"            type="org.tandemframework.hibsupport.type.TrimmedStringType" length="1200"/>
+
+</class>
+
+<class entity-name="EntertainmentTypeNaturalProxy" name="org.tandemframework.hibsupport.entity.NaturalProxy" lazy="false" mutable="false" batch-size="1"
+        persister="org.tandemframework.hibsupport.persister.NaturalIdProxyPersister">
+    <subselect>
+        select code_p, id as object_id from entertainmenttype_t
+    </subselect>
+    <cache usage="read-only"/>
+    <synchronize table="entertainmenttype_t"/>
+    <composite-id name="id" class="ru.tandemservice.uniclient.unimirea_code.entity.catalog.gen.EntertainmentTypeGen$NaturalId">
+        <key-property name="code" column="code_p"
+                type="org.tandemframework.hibsupport.type.TrimmedStringType"/>
+
+    </composite-id>
+    <many-to-one name="object" class="ru.tandemservice.uniclient.unimirea_code.entity.catalog.EntertainmentType" column="object_id" lazy="false"/>
+</class>
+
+
+</hibernate-mapping>

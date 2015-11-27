@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-config name="entertainmentTypeUnitConfig" package-name="ru.tandemservice.uniclient.unimirea_code.entity"
+               xmlns="http://www.tandemframework.org/meta/entity"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.tandemframework.org/meta/entity http://www.tandemframework.org/schema/meta/meta-entity.xsd">
+                <entity name="entertainmentTypeUnit" title="Учебное мероприятие">
+                    <property name="titile" type="trimmedstring" required="true" title="Название"/>
+                    <many-to-one name="type" entity-ref="entertainmentType" title="Типы мероприятий" />
+                    <property name="dateBegin" type="date" required="true" title="Дата начала" />
+                    <property name="dateEnd" type="date" title="Дата окончания" />
+                    <property name="description" type="text"  title="Описание"/>
+                </entity>
+                <entity name="entertainmentPrtcption" title="Участие во внеучебном мероприятии">
+                    <many-to-one name="unit" entity-ref="entertainmentTypeUnit" title="Мероприятие" required="true" />
+                    <many-to-one name="type" entity-ref="employeePost" title="Участник" required="true" />
+                    <property name="overseer" type="boolean"  title="Наблюдатель" required="true"/>
+                </entity>
+</entity-config>

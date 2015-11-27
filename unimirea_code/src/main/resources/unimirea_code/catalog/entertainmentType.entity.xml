@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-config name="entertaimentType" package-name="ru.tandemservice.uniclient.unimirea_code.entity.catalog"
+               xmlns="http://www.tandemframework.org/meta/entity"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.tandemframework.org/meta/entity http://www.tandemframework.org/schema/meta/meta-entity.xsd">
+
+                <entity name="entertainmentType" title="Тип мероприятий">
+                    <apply plugin="catalog-item"/>
+                    <property name="shortTitle" type="trimmedstring" required="true" title="Сокращенное название" />
+                </entity>
+</entity-config>

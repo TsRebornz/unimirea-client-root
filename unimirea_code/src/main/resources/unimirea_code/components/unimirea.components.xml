@@ -1,0 +1,23 @@
+<components-config name="unimireacode" label="Компоненты модуля UNIMirea" xmlns="http://www.tandemframework.org/meta/components"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.tandemframework.org/meta/components http://www.tandemframework.org/schema/meta/meta-components.xsd">
+
+
+    <publisher name="entertainmentTypeUnit" component="ru.tandemservice.uniclient.unimirea_code.component.entertainment.EntertainmentPub"/>
+
+    <component package="ru.tandemservice.uniclient.unimirea_code.component.entertainment.EntertainmentList" title="Список мероприятий">
+        <description>Я список</description>
+    </component>
+
+    <component package="ru.tandemservice.uniclient.unimirea_code.component.entertainment.EntertainmentAddEdit" title="Добавление/Редактирование мероприятий">
+        <description>Я редактор</description>
+    </component>
+
+    <component package="ru.tandemservice.uniclient.unimirea_code.component.entertainment.EntertainmentPub" title="Карточка мероприятий">
+        <description>Я карточка</description>
+    </component>
+
+
+
+
+</components-config>

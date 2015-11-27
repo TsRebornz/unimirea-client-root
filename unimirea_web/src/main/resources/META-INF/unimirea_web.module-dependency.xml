@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="unimirea_web" group-name="ru.tandemservice.uniclient" web="true" version="1.0.0-UC-SNAPSHOT" full-name="Tandem Uni Client «unimirea» Web Module" description="" packages=""
+     xmlns="http://www.tandemframework.org/meta/module-dependency"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.tandemframework.org/meta/module-dependency http://www.tandemframework.org/schema/meta/module-dependency.xsd">
+	<module-ref name="unimirea_code"/>
+</module>

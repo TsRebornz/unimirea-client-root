@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<groups name="entertainmentTypeGroup"
+        xmlns="http://www.tandemframework.org/meta/catalog-group"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.tandemframework.org/meta/catalog-group http://www.tandemframework.org/schema/meta/meta-catalog-group.xsd">
+
+    <group name="entertainmentTypeGroup" title="Демо проект">
+        <catalog name="entertainmentType" title="Тип мероприятий"/>
+    </group>
+
+
+</groups>

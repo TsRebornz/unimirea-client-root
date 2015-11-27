@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentTypeUnit" table="entertainmenttypeunit_t" lazy="true"
+    persister="org.tandemframework.hibsupport.persister.SubclassTypedPersister" optimistic-lock="dirty" dynamic-update="true"
+    discriminator-value="-9370">   <!-- Do not use this discriminator value! It will be changed on startup. -->
+    <cache usage="read-write"/>
+    <comment>ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentTypeUnit</comment>
+    <id name="id" type="long" column="id">
+        <generator class="org.tandemframework.hibsupport.EntityIDGenerator"/>
+    </id>
+    <discriminator type="short" column="discriminator"/>
+
+    <property name="titile" column="titile_p" not-null="true"            type="org.tandemframework.hibsupport.type.TrimmedStringType" length="255"/>
+
+    <many-to-one name="type" column="type_id" entity-name="ru.tandemservice.uniclient.unimirea_code.entity.catalog.EntertainmentType"
+        not-null="false" lazy="proxy"        foreign-key="fk_type_entertainmenttypeunit" index="idx_type_entertainmenttypeunit"/>
+
+    <property name="dateBegin" column="datebegin_p" not-null="true"            type="date" length="255"/>
+
+    <property name="dateEnd" column="dateend_p" not-null="false"            type="date" length="255"/>
+
+    <property name="description" column="description_p" not-null="false" optimistic-lock="false"            type="materialized_clob" length="255"/>
+
+</class>
+
+
+
+</hibernate-mapping>

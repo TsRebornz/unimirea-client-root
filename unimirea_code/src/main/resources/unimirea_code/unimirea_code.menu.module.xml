@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module-config name="client-menu-ru.tandemservice.uniclient-unimirea_code" label="Меню"
+               xmlns="http://www.tandemframework.org/meta/module"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.tandemframework.org/meta/module http://www.tandemframework.org/schema/meta/meta-module.xsd">
+
+
+    <menu id="menuNonStudyWork" label="Внеучебная работа" entity-class="org.tandemframework.sec.entity.CommonSecurityObject"  >
+        <menu id="menuEntertainment" label="Мероприятия" permission-key="menuEntertainment" entity-class="org.tandemframework.sec.entity.CommonSecurityObject" component-name="ru.tandemservice.uniclient.unimirea_code.component.entertainment.EntertainmentList"/>
+        <menu id="menuNonStudyWorkPrtcpation" label="Участие во внеучебной работе" permission-key="EntParticipationList" entity-class="org.tandemframework.sec.entity.CommonSecurityObject" component-name="EntParticipationList" />
+    </menu>
+
+    <menu id="menuReports" label="Отчеты" entity-class="org.tandemframework.sec.entity.CommonSecurityObject"  >
+        <menu id="menuEntertainmentRTF" label="Участники RTF" permission-key="menuEntertainment" entity-class="org.tandemframework.sec.entity.CommonSecurityObject" component-name="EntParticipationPrint"/>
+        <menu id="menuEntertainmentXML" label="Участники XML" permission-key="menuEntertainment" entity-class="org.tandemframework.sec.entity.CommonSecurityObject" component-name="EntParticipationPrintXml"/>
+    </menu>
+
+
+</module-config>

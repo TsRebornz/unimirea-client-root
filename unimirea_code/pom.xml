@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>ru.tandemservice.uniclient</groupId>
+        <artifactId>unimirea-client-root</artifactId>
+        <version>1.0.0-UC-SNAPSHOT</version>
+    </parent> 
+
+    <name>Tandem Uni Client «unimirea» Code</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.tandemservice.uniclient</groupId>
+    <artifactId>unimirea_code</artifactId>
+    <version>1.0.0-UC-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- зависимость от сборки в репозитории tandem !-->
+        <dependency>
+            <groupId>ru.tandemservice.uni.project</groupId>
+            <artifactId>unimirea</artifactId>
+            <version>2.9.0-uni-r1</version>
+            <!-- здесь версия из релиза uni !-->
+        </dependency>
+    </dependencies>
+
+</project>
