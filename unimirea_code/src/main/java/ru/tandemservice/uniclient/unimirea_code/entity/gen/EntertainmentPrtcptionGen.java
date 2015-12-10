@@ -1,16 +1,20 @@
 package ru.tandemservice.uniclient.unimirea_code.entity.gen;
 
-import javax.validation.constraints.*;
-import org.hibernate.validator.constraints.*;
+import org.tandemframework.core.bean.FastBeanGenBase;
+import org.tandemframework.core.bean.IFastBean;
+import org.tandemframework.core.entity.EntityBase;
+import org.tandemframework.core.entity.IEntity;
+import org.tandemframework.core.entity.dsl.EntityPath;
+import org.tandemframework.core.entity.dsl.PropertyPath;
+import org.tandemframework.core.entity.dsl.SupportedPropertyPath;
+import org.tandemframework.core.meta.entity.IEntityMeta;
+import org.tandemframework.core.runtime.EntityRuntime;
+import org.tandemframework.core.view.formatter.DebugEntityFormatter;
 import org.tandemframework.shared.employeebase.base.entity.EmployeePost;
 import ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentPrtcption;
 import ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentTypeUnit;
-import org.tandemframework.core.view.formatter.DebugEntityFormatter;
-import org.tandemframework.core.meta.entity.IEntityMeta;
-import org.tandemframework.core.runtime.EntityRuntime;
-import org.tandemframework.core.entity.*;
-import org.tandemframework.core.entity.dsl.*;
-import org.tandemframework.core.bean.*;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Участие во внеучебном мероприятии
@@ -29,6 +33,7 @@ public abstract class EntertainmentPrtcptionGen extends EntityBase
     public static final String L_TYPE = "type";
     public static final String P_OVERSEER = "overseer";
     public static final String P_FULL_ENTERTAINMENT_NAME = "fullEntertainmentName";
+    public static final String P_OVERSEER_AS_STRING = "overseerAsString";
 
     private EntertainmentTypeUnit _unit;     // Мероприятие
     private EmployeePost _type;     // Участник
@@ -268,12 +273,24 @@ public abstract class EntertainmentPrtcptionGen extends EntityBase
         return _dslPath.fullEntertainmentName();
     }
 
+    /**
+     * @EntityDSLSupport
+     *
+     * @return 
+     * @see ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentPrtcption#getOverseerAsString()
+     */
+    public static SupportedPropertyPath<String> overseerAsString()
+    {
+        return _dslPath.overseerAsString();
+    }
+
     public static class Path<E extends EntertainmentPrtcption> extends EntityPath<E>
     {
         private EntertainmentTypeUnit.Path<EntertainmentTypeUnit> _unit;
         private EmployeePost.Path<EmployeePost> _type;
         private PropertyPath<Boolean> _overseer;
         private SupportedPropertyPath<String> _fullEntertainmentName;
+        private SupportedPropertyPath<String> _overseerAsString;
 
         public Path()
         {
@@ -336,6 +353,19 @@ public abstract class EntertainmentPrtcptionGen extends EntityBase
             return _fullEntertainmentName;
         }
 
+    /**
+     * @EntityDSLSupport
+     *
+     * @return 
+     * @see ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentPrtcption#getOverseerAsString()
+     */
+        public SupportedPropertyPath<String> overseerAsString()
+        {
+            if(_overseerAsString == null )
+                _overseerAsString = new SupportedPropertyPath<String>(EntertainmentPrtcptionGen.P_OVERSEER_AS_STRING, this);
+            return _overseerAsString;
+        }
+
         public Class getEntityClass()
         {
             return EntertainmentPrtcption.class;
@@ -362,4 +392,6 @@ public abstract class EntertainmentPrtcptionGen extends EntityBase
     }
 
     public abstract String getFullEntertainmentName();
+
+    public abstract String getOverseerAsString();
 }

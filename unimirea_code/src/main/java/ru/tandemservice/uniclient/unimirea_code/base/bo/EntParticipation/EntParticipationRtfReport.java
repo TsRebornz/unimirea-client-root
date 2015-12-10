@@ -1,22 +1,16 @@
 package ru.tandemservice.uniclient.unimirea_code.base.bo.EntParticipation;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
-import org.tandemframework.core.i18n.russian.RussianDateFormatUtils;
 import org.tandemframework.hibsupport.DataAccessServices;
-import org.tandemframework.hibsupport.builder.MQBuilder;
-import org.tandemframework.hibsupport.builder.expression.MQExpression;
 import org.tandemframework.hibsupport.dao.ICommonDAO;
 import org.tandemframework.rtf.document.RtfDocument;
 import org.tandemframework.rtf.io.RtfReader;
-import org.tandemframework.rtf.modifiers.RtfInjectModifier;
 import org.tandemframework.rtf.modifiers.RtfTableModifier;
-import org.tandemframework.shared.employeebase.base.entity.EmployeePost;
 import ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentPrtcption;
 
-import javax.swing.text.rtf.RTFEditorKit;
-import java.io.*;
-import java.text.SimpleDateFormat;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -100,17 +94,16 @@ public class EntParticipationRtfReport
             EntertainmentPrtcption entPart = entityListIterator.next();
             List<String> cells = new ArrayList<>();
             cells.add(entPart.getUnit().getTitile());
-            cells.add(entPart.getUnit().getType().getTitle());
             cells.add(entPart.getUnit().getDateBegin().toString());
             cells.add(entPart.getUnit().getDateEnd().toString());
             cells.add(entPart.getType().getEmployee().getFullFio());
-            cells.add(entPart.isOverseer() ? "Присутствует" : "Отсутствует");
+            cells.add(entPart.getOverseerAsString());
             lines.add(cells.toArray(new String[cells.size()]));
         }
         String[][] result = new String[lines.size()][6];
 
         for(int x =0 ; x < lines.size(); x++){
-            for(int y=0; y < 6; y++ ){
+            for(int y=0; y < 5; y++ ){
                 result[x][y] = lines.get(x)[y];
             }
         }

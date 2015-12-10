@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.tandemframework.caf.command.io.DSInput;
 import org.tandemframework.caf.command.io.DSOutput;
 import org.tandemframework.caf.logic.handler.IReadAggregateHandler;
-import org.tandemframework.caf.logic.wrapper.DataWrapper;
 import org.tandemframework.caf.ui.config.BusinessComponentManager;
 import org.tandemframework.caf.ui.config.datasource.ColumnListExtPoint;
 import org.tandemframework.caf.ui.config.presenter.PresenterExtPoint;
@@ -51,13 +50,16 @@ public class EntParticipationList extends BusinessComponentManager
 
         //Сюда пишем привязку из i18n.properties
         return columnListExtPointBuilder(SELECT_ENT_DS)
+                /*.addColumn(publisherColumn("entertainmentTypeUnit", EntertainmentPrtcption.unit().titile().s())
+                .order().create())*/
+                //EntertainmentPrtcption.overseer().s())
                 .addColumn(publisherColumn("title", EntertainmentPrtcption.fullEntertainmentName().s()).publisherLinkResolver(new IPublisherLinkResolver()
                 {
                     @Override
 
-                     public Object getParameters(IEntity entity)
+                    public Object getParameters(IEntity entity)
                     {
-                        EntertainmentPrtcption entPrtcption = (EntertainmentPrtcption)entity;
+                        EntertainmentPrtcption entPrtcption = (EntertainmentPrtcption) entity;
                         return new ParametersMap().add(PublisherActivator.PUBLISHER_ID_KEY, entPrtcption != null ? entPrtcption.getId().toString() : null).add(EntParticipationViewUI.PUBLISHER_ID, entPrtcption.getId().toString());
                     }
 
@@ -69,10 +71,10 @@ public class EntParticipationList extends BusinessComponentManager
                 }).create())
                 .addColumn(textColumn("employeePost", EntertainmentPrtcption.type().person().identityCard().fullFio().s())
                         .order().create())
-                                .addColumn(publisherColumn("entertainmentTypeUnit", EntertainmentPrtcption.unit().titile().s())
-                                        .order().create())
-                .addColumn(textColumn("overseer", EntertainmentPrtcption.overseer().s()).order().create())
-                .create();
+                .addColumn(textColumn("overseer", (EntertainmentPrtcption.overseerAsString())).create())
+                        .create() ;
     }
+
+
 
 }
