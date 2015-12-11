@@ -2,9 +2,7 @@ package ru.tandemservice.uniclient.unimirea_code.base.bo.EntParticipation.ui.Lis
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.tandemframework.caf.command.io.DSInput;
-import org.tandemframework.caf.command.io.DSOutput;
-import org.tandemframework.caf.logic.handler.IReadAggregateHandler;
+import org.tandemframework.caf.logic.handler.IDefaultSearchDataSourceHandler;
 import org.tandemframework.caf.ui.config.BusinessComponentManager;
 import org.tandemframework.caf.ui.config.datasource.ColumnListExtPoint;
 import org.tandemframework.caf.ui.config.presenter.PresenterExtPoint;
@@ -38,7 +36,7 @@ public class EntParticipationList extends BusinessComponentManager
     }
 
     @Bean
-    public IReadAggregateHandler<DSInput, DSOutput> entParticipationDSHandler()
+    public IDefaultSearchDataSourceHandler entParticipationDSHandler()
     {
         return new EntParticipationDSHandler(this.getName());
     }

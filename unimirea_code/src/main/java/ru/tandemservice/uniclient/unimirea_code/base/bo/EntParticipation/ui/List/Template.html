@@ -9,11 +9,11 @@
                         <div class="filter">Фильтры</div>
                         <div jwcid="@tandem:mTextField" displayName="message:ui.lastName" value="settings:lastName"/>
                         <div jwcid="@tandem:mTextField" displayName="message:ui.firstName" value="settings:firstName"/>
-                        <div jwcid="@tandem:mTextField" displayName="message:ui.middleName" value="settings:middleName"/>
+                        <div jwcid="@tandem:mTextField" displayName="message:ui.middleName" value="settings:midName"/>
                         <!--div jwcid="@tandem:mAutoCompleteSelect" displayName="message:ui.selectEntDS" source="ds:selectEntDS" value="settings:entTypeUnit"/-->
 
-                        <div style="width:35%;float:left;" jwcid="@tandem:mSubmit" listener="onClickSearch" type="action" id="submit_desktop">Применить</div>
-                        <div style="width:35%;float:left;" jwcid="@tandem:mSubmit" listener="onClickClear" type="cancel">Сбросить</div>
+                        <div style="width:35%;float:left;" jwcid="@tandem:mSubmit" listener="saveSettings" id="submit_desktop">Применить</div>
+                        <div style="width:35%;float:left;" jwcid="@tandem:mSubmit" listener="clearSettings" >Сбросить</div>
                     </td>
                     <td style="vertical-align:top;">
                         <div jwcid="@tandem:mSearchList" showRowNumbersColumn="true" caption="Участники мероприятий"
