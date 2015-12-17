@@ -5,12 +5,9 @@ import org.tandemframework.hibsupport.dao.ICommonDAO;
 import org.tandemframework.rtf.document.RtfDocument;
 import org.tandemframework.rtf.io.RtfReader;
 import org.tandemframework.rtf.modifiers.RtfTableModifier;
+import org.tandemframework.shared.employeebase.catalog.entity.EmployeeRosterTemplateDocument;
 import ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentPrtcption;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,16 +25,9 @@ public class EntParticipationRtfReport
 
 
     public RtfDocument initRtfDocument(){
+        ICommonDAO dao = DataAccessServices.dao();
+        RtfDocument document = new RtfReader().read(dao.getByCode(EmployeeRosterTemplateDocument.class, "employeePostReference").getContent());
 
-         ICommonDAO dao = DataAccessServices.dao();
-        byte[] bytes = "".getBytes();
-        try{
-            bytes = this.getData(templatePath);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
-
-        RtfDocument document = new RtfReader().read(bytes);
         List<EntertainmentPrtcption> list = DataAccessServices.dao().getList(EntertainmentPrtcption.class);
 
         RtfTableModifier tableModifier = new RtfTableModifier();
@@ -46,45 +36,6 @@ public class EntParticipationRtfReport
         //resultDoc.getElementList().addAll(resultDoc.getElementList());
 
         return document;
-    }
-
-    public byte[] getData(String path) throws IOException
-    {
-        File file = new File(path);
-        InputStream is = new FileInputStream(file);
-
-        //RTFEditorKit rtfEditorKit = new RTFEditorKit();
-        //rtfEditorKit.read();
-
-        // Get the size of the file
-        long length = file.length();
-
-        // You cannot create an array using a long type.
-        // It needs to be an int type.
-        // Before converting to an int type, check
-        // to ensure that file is not larger than Integer.MAX_VALUE.
-        if (length > Integer.MAX_VALUE) {
-            throw new IOException("Could not completely read file " + file.getName() + " as it is too long (" + length + " bytes, max supported " + Integer.MAX_VALUE + ")");
-        }
-
-        // Create the byte array to hold the data
-        byte[] bytes = new byte[(int)length];
-
-        // Read in the bytes
-        int offset = 0;
-        int numRead = 0;
-        while (offset < bytes.length && (numRead=is.read(bytes, offset, bytes.length-offset)) >= 0) {
-            offset += numRead;
-        }
-
-        // Ensure all the bytes have been read in
-        if (offset < bytes.length) {
-            throw new IOException("Could not completely read file " + file.getName());
-        }
-
-        // Close the input stream and return bytes
-        is.close();
-        return bytes;
     }
 
     public String[][] getEntParticipationTableData(List<EntertainmentPrtcption> list){
@@ -100,14 +51,15 @@ public class EntParticipationRtfReport
             cells.add(entPart.getOverseerAsString());
             lines.add(cells.toArray(new String[cells.size()]));
         }
-        String[][] result = new String[lines.size()][6];
+//        String[][] result = new String[lines.size()][6];
+//
+//        for(int x =0 ; x < lines.size(); x++){
+//            for(int y=0; y < 5; y++ ){
+//                result[x][y] = lines.get(x)[y];
+//            }
+//        }
 
-        for(int x =0 ; x < lines.size(); x++){
-            for(int y=0; y < 5; y++ ){
-                result[x][y] = lines.get(x)[y];
-            }
-        }
-        return result;
+        return lines.toArray(new String[lines.size()][6]);
     }
 
 

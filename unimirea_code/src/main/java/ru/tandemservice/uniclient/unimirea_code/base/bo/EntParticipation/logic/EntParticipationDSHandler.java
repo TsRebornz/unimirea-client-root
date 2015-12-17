@@ -4,13 +4,12 @@ import org.tandemframework.caf.command.io.DSInput;
 import org.tandemframework.caf.command.io.DSOutput;
 import org.tandemframework.caf.logic.ExecutionContext;
 import org.tandemframework.caf.logic.datasource.output.DQLSelectOutputBuilder;
-import org.tandemframework.caf.logic.handler.AbstractSearchDataSourceHandler;
 import org.tandemframework.caf.logic.handler.DefaultSearchDataSourceHandler;
 import org.tandemframework.core.entity.OrderDirection;
-import org.tandemframework.hibsupport.dql.*;
+import org.tandemframework.hibsupport.dql.DQLExpressions;
+import org.tandemframework.hibsupport.dql.DQLSelectBuilder;
 import ru.tandemservice.uni.util.FilterUtils;
 import ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentPrtcption;
-import ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentTypeUnit;
 
 /**
  * Created by ocean on 15.10.2015.
@@ -20,7 +19,7 @@ public class EntParticipationDSHandler extends DefaultSearchDataSourceHandler
     public static final String TITLE = "title";
     public static final String PARTICIPANT = "employeePost";
     public static final String OVERSEER = "overseer";
-    public static final String TYPEUNIT = "entertainmentTypeUnit";
+    public static final String TYPEUNIT = "entName";
     public static final String LAST_NAME = "lastName";
     public static final String FIRST_NAME = "firstName";
     public static final String MID_NAME = "midName";
@@ -31,24 +30,20 @@ public class EntParticipationDSHandler extends DefaultSearchDataSourceHandler
         super(ownerId);
     }
 
-    // Это хэндлер для списка
-    //TODO handler для searchList, для списка внеучебных мероприятий(KOMBO-VOMBO Select)
-    //TODO в конфигурации зарегистрировать DS в extPoint builder (done)
-    //TODO Прописать зависимости в html template (done)
-    //TODO Прописать ссылку в меню (done)
-
     protected DSOutput execute(DSInput input, ExecutionContext context) {
 
-        EntertainmentTypeUnit entTypeUnit = context.get(TYPEUNIT);
+        String entTypeUnit = context.get(TYPEUNIT);
 
         String lastName = context.get(LAST_NAME);
         String firstName = context.get(FIRST_NAME);
         String midName = context.get(MID_NAME);
 
+
         DQLSelectBuilder dql = new DQLSelectBuilder().fromEntity(EntertainmentPrtcption.class, "e");
         dql.column(DQLExpressions.property("e"));
 
-        FilterUtils.applySelectFilter(dql, "e", EntertainmentPrtcption.unit() , entTypeUnit);
+        FilterUtils.applySelectFilter(dql, "e", EntertainmentPrtcption.unit().titile().s() , entTypeUnit);
+        //FilterUtils.applySelectFilter(dql, "e", EntertainmentPrtcption.unit().type().title() , entTypeUnit);
 
         FilterUtils.applySimpleLikeFilter(dql, "e", EntertainmentPrtcption.type().employee().person().identityCard().firstName() , firstName );
         FilterUtils.applySimpleLikeFilter(dql, "e", EntertainmentPrtcption.type().employee().person().identityCard().middleName() , midName  );
@@ -56,7 +51,7 @@ public class EntParticipationDSHandler extends DefaultSearchDataSourceHandler
 
         dql.order(DQLExpressions.property("e", input.getEntityOrder().getKeyString()), OrderDirection.valueOf(input.getEntityOrder().getDirection().name()));
 
-        //DQLSelectBuilder крутится, данные мутятся
+        //DQLSelectBuilder ��������, ������ �������
         DSOutput output = DQLSelectOutputBuilder.get(input, dql, this.getSession()).pageable(true).build();
 
 

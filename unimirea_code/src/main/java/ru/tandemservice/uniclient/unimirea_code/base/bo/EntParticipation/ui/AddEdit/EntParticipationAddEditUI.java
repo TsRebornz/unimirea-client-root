@@ -12,7 +12,6 @@ import ru.tandemservice.uniclient.unimirea_code.base.bo.EntParticipation.EntPart
 import ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentPrtcption;
 import ru.tandemservice.uniclient.unimirea_code.entity.EntertainmentTypeUnit;
 
-import static org.tandemframework.hibsupport.dql.DQLExpressions.or;
 import static org.tandemframework.hibsupport.dql.DQLExpressions.property;
 
 /**
@@ -65,9 +64,9 @@ public class EntParticipationAddEditUI extends UIPresenter
             DQLSelectBuilder dql = new DQLSelectBuilder().fromEntity(EntertainmentTypeUnit.class, alias);
             if (null != filter)
             {
-                dql.where(or(
+                dql.where(
                         like(EntertainmentTypeUnit.titile().fromAlias(alias), filter)
-                ));
+                );
             }
 
             dql.order(property(EntertainmentTypeUnit.titile().fromAlias(alias)));
@@ -83,9 +82,9 @@ public class EntParticipationAddEditUI extends UIPresenter
             DQLSelectBuilder dql = new DQLSelectBuilder().fromEntity(EmployeePost.class, alias);
             if (null != filter)
             {
-                dql.where(or(
+                dql.where(
                         like(EmployeePost.person().identityCard().fullFio().fromAlias(alias), filter)
-                ));
+                );
             }
 
             dql.order(property(EmployeePost.person().identityCard().fullFio().fromAlias(alias)));

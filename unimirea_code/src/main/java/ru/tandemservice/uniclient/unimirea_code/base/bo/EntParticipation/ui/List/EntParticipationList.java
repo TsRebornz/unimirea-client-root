@@ -10,6 +10,7 @@ import org.tandemframework.core.component.PublisherActivator;
 import org.tandemframework.core.entity.IEntity;
 import org.tandemframework.core.util.ParametersMap;
 import org.tandemframework.core.view.list.column.IPublisherLinkResolver;
+import org.tandemframework.hibsupport.dql.DQLSelectBuilder;
 import ru.tandemservice.uniclient.unimirea_code.base.bo.EntParticipation.logic.EntParticipationDSHandler;
 import ru.tandemservice.uniclient.unimirea_code.base.bo.EntParticipation.ui.View.EntParticipationView;
 import ru.tandemservice.uniclient.unimirea_code.base.bo.EntParticipation.ui.View.EntParticipationViewUI;
@@ -45,13 +46,15 @@ public class EntParticipationList extends BusinessComponentManager
     @Bean
     public ColumnListExtPoint selectEntDS()
     {
-
+        final String alias = "a";
+        final DQLSelectBuilder entPart = new DQLSelectBuilder().fromEntity(EntertainmentPrtcption.class, alias);
         //Сюда пишем привязку из i18n.properties
         return columnListExtPointBuilder(SELECT_ENT_DS)
                 /*.addColumn(publisherColumn("entertainmentTypeUnit", EntertainmentPrtcption.unit().titile().s())
                 .order().create())*/
                 //EntertainmentPrtcption.overseer().s())
-                .addColumn(publisherColumn("title", EntertainmentPrtcption.fullEntertainmentName().s()).publisherLinkResolver(new IPublisherLinkResolver()
+
+                .addColumn(publisherColumn("title", EntertainmentPrtcption.fullEntertainmentName()).publisherLinkResolver(new IPublisherLinkResolver()
                 {
                     @Override
 

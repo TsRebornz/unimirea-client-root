@@ -34,7 +34,7 @@ public class EntParticipationListUI extends UIPresenter
     {
         if(dataSource.getName().equals(EntParticipationList.SELECT_ENT_DS)){
             super.onBeforeDataSourceFetch(dataSource);
-            dataSource.putAll(getSettings().getAsMap(EntParticipationDSHandler.LAST_NAME, EntParticipationDSHandler.FIRST_NAME, EntParticipationDSHandler.MID_NAME,EntParticipationDSHandler.TYPEUNIT));
+            dataSource.putAll(getSettings().getAsMap(EntParticipationDSHandler.LAST_NAME, EntParticipationDSHandler.FIRST_NAME, EntParticipationDSHandler.MID_NAME, EntParticipationDSHandler.TYPEUNIT));
         }
     }
 
